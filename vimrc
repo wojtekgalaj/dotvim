@@ -14,7 +14,7 @@ set showcmd
 set tabstop=2
 set shiftwidth=2
 set numberwidth=5
-set textwidth=80
+"set textwidth=80
 set ignorecase
 set smartcase
 set tags=./tags;
@@ -26,6 +26,7 @@ set mouse=a
 set colorcolumn=80
 set backspace=indent,eol,start
 set nowrap
+set cursorline
 
 set completeopt=longest,menu
 set wildmode=list:longest,list:full
@@ -34,7 +35,7 @@ set complete=.,t
 
 " Set up NeoBundle
 set rtp+=~/.vim/bundle/neobundle.vim/
-call neobundle#rc(expand('~/.vim/bundle/'))
+call neobundle#begin(expand('~/.vim/bundle/'))
 
 NeoBundleFetch "Shougo/neobundle.vim"
 
@@ -66,19 +67,28 @@ NeoBundle "Shougo/unite.vim"
 NeoBundle "kien/ctrlp.vim"
 NeoBundle "Shougo/vimshell.vim"
 
-filetype plugin indent on
+call neobundle#end()
+
+filetyp plugin indent on
 
 NeoBundleCheck
 
-"colorscheme distinguished
-colorscheme vividchalk
+colorscheme distinguished
+"colorscheme vividchalk
+"colorscheme github
+"colorscheme whitebox
+
+
+" syntax highlighting
+"set background=dark
 syntax on
-highlight ColorColumn ctermbg=white
+"color mango
 
 if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
   syntax on
 endif
 
+highlight ColorColumn ctermbg=lightgray
 "if has("autocmd")
   "filetype plugin indent on
 
@@ -108,6 +118,8 @@ endif
 
 " automatically open quickfix window on grep searches
 autocmd QuickFixCmdPost *grep* cwindow
+
+au BufNewFile,BufRead *.markdown,*.md setf markdown
 
 if has("gui_running")
   set guifont=Menlo\ Regular:h14
@@ -147,7 +159,8 @@ nnoremap <silent> <c-l> :wincmd l<cr>
 inoremap <leader>w <Esc> :w<cr>
 nnoremap <leader>w :w<cr>
 
-" NERDTreeToggle
+" NERDTree
+let NERDTreeShowHidden=1
 nnoremap <leader><Tab> :NERDTreeToggle<cr>
 
 
@@ -161,3 +174,8 @@ nnoremap <Leader>g :Unite -buffer-name=register -start-insert register<cr>
 nnoremap <Leader>o :Unite -buffer-name=outline -start-insert outline<cr>
 nnoremap <Leader>y :Unite -buffer-name=yank history/yank<cr>
 nnoremap <Leader>e :Unite -buffer-name=buffer buffer<cr>
+
+" CtrlP
+" 'c' The directory of current file
+" 'r' nearest ancestor with .git
+let g:ctrlp_working_path_mode='r'

@@ -4,7 +4,6 @@ set nocompatible
 set sh=/bin/bash
 set backupdir=~/.vim_backup//
 set directory=~/.vim_swp//
-set ruler
 set number
 set expandtab
 set laststatus=2
@@ -13,8 +12,7 @@ set autoindent
 set showcmd
 set tabstop=2
 set shiftwidth=2
-set numberwidth=5
-"set textwidth=80
+set numberwidth=4
 set ignorecase
 set smartcase
 set tags=./tags;
@@ -23,7 +21,6 @@ set guioptions-=r
 set foldenable
 set foldmethod=manual
 set mouse=a
-set colorcolumn=80
 set backspace=indent,eol,start
 set nowrap
 set cursorline
@@ -59,13 +56,12 @@ NeoBundle "tpope/vim-git"
 NeoBundle "tpope/vim-surround"
 NeoBundle "nono/vim-handlebars"
 NeoBundle "pangloss/vim-javascript"
-NeoBundle "groenewege/vim-less"
 NeoBundle "garbas/vim-snipmate"
-NeoBundle "honza/vim-snippets"
 NeoBundle "cmather/vim-meteor-snippets"
-NeoBundle "Shougo/unite.vim"
 NeoBundle "kien/ctrlp.vim"
 NeoBundle "Shougo/vimshell.vim"
+NeoBundle "mileszs/ack.vim"
+NeoBundle "wojtekgalaj/vim-snippets"
 
 call neobundle#end()
 
@@ -164,16 +160,6 @@ let NERDTreeShowHidden=1
 nnoremap <leader><Tab> :NERDTreeToggle<cr>
 
 
-" Unite
-let g:unite_source_history_yank_enable=1
-call unite#filters#matcher_default#use(['matcher_fuzzy'])
-nnoremap <Leader>t :Unite -buffer-name=files -start-insert file_rec/async:!<cr>
-nnoremap <Leader>f :Unite -buffer-name=files -start-insert file<cr>
-nnoremap <Leader>r :Unite -buffer-name=mru -start-insert file_mru<cr>
-nnoremap <Leader>g :Unite -buffer-name=register -start-insert register<cr>
-nnoremap <Leader>o :Unite -buffer-name=outline -start-insert outline<cr>
-nnoremap <Leader>y :Unite -buffer-name=yank history/yank<cr>
-nnoremap <Leader>e :Unite -buffer-name=buffer buffer<cr>
 
 " CtrlP
 " 'c' The directory of current file

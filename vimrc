@@ -62,6 +62,7 @@ NeoBundle "kien/ctrlp.vim"
 NeoBundle "Shougo/vimshell.vim"
 NeoBundle "mileszs/ack.vim"
 NeoBundle "wojtekgalaj/vim-snippets"
+NeoBundle "burnettk/vim-angular"
 
 call neobundle#end()
 
@@ -119,7 +120,6 @@ au BufNewFile,BufRead *.markdown,*.md setf markdown
 
 if has("gui_running")
   set guifont=Menlo\ Regular:h14
-  " set guifont=Menlo\ Regular:h11
 endif
 
 " Functions

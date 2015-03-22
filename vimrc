@@ -28,6 +28,7 @@ set cursorline
 set completeopt=longest,menu
 set wildmode=list:longest,list:full
 set complete=.,t
+set hlsearch
 
 
 " Set up NeoBundle
@@ -63,6 +64,7 @@ NeoBundle "Shougo/vimshell.vim"
 NeoBundle "mileszs/ack.vim"
 NeoBundle "wojtekgalaj/vim-snippets"
 NeoBundle "burnettk/vim-angular"
+NeoBundle "rizzatti/dash.vim"
 
 call neobundle#end()
 
@@ -165,3 +167,6 @@ nnoremap <leader><Tab> :NERDTreeToggle<cr>
 " 'c' The directory of current file
 " 'r' nearest ancestor with .git
 let g:ctrlp_working_path_mode='r'
+
+" NerdTree
+let g:NERDTreeDirArrows=0

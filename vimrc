@@ -65,6 +65,7 @@ NeoBundle "burnettk/vim-angular"
 NeoBundle "rizzatti/dash.vim"
 NeoBundle "sickill/vim-pasta"
 NeoBundle "scrooloose/syntastic"
+NeoBundle "ervandew/supertab"
 
 call neobundle#end()
 

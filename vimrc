@@ -47,7 +47,6 @@ NeoBundle 'Shougo/vimproc', {
       \    },
       \ }
 NeoBundle "Lokaltog/vim-distinguished"
-NeoBundle "scrooloose/nerdtree"
 NeoBundle "tomtom/tlib_vim"
 NeoBundle "MarcWeber/vim-addon-mw-utils"
 NeoBundle "bling/vim-airline"
@@ -55,7 +54,6 @@ NeoBundle "flazz/vim-colorschemes"
 NeoBundle "tpope/vim-fugitive"
 NeoBundle "tpope/vim-git"
 NeoBundle "tpope/vim-surround"
-NeoBundle "nono/vim-handlebars"
 NeoBundle "pangloss/vim-javascript"
 NeoBundle "garbas/vim-snipmate"
 NeoBundle "cmather/vim-meteor-snippets"
@@ -65,6 +63,8 @@ NeoBundle "mileszs/ack.vim"
 NeoBundle "wojtekgalaj/vim-snippets"
 NeoBundle "burnettk/vim-angular"
 NeoBundle "rizzatti/dash.vim"
+NeoBundle "sickill/vim-pasta"
+NeoBundle "scrooloose/syntastic"
 
 call neobundle#end()
 
@@ -88,32 +88,10 @@ if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
 endif
 
 highlight ColorColumn ctermbg=lightgray
-"if has("autocmd")
-  "filetype plugin indent on
 
-  "autocmd BufNewFile,BufRead *.txt setfiletype text
+" Automatically load .vimrc source when saved
+autocmd BufWritePost .vimrc source $MYVIMRC
 
-  "autocmd FileType text,markdown,html,xhtml,eruby setlocal wrap linebreak nolist
-
-  "au FocusLost * :set number
-  "au InsertEnter * :set number
-
-  "augroup vimrcEx
-  "au!
-
-  "autocmd BufReadPost *
-    "\ if line("'\"") > 0 && line("'\"") <= line("$") |
-    "\   exe "normal g`\"" |
-    "\ endif
-
-  " Automatically load .vimrc source when saved
-  autocmd BufWritePost .vimrc source $MYVIMRC
-
-  "augroup END
-
-"else
-  "set autoindent
-"endif " has("autocmd")
 
 " automatically open quickfix window on grep searches
 autocmd QuickFixCmdPost *grep* cwindow
@@ -170,3 +148,17 @@ let g:ctrlp_working_path_mode='r'
 
 " NerdTree
 let g:NERDTreeDirArrows=0
+
+
+" VimPasta
+let g:pasta_enabled_filetypes = ['javascript', 'css', 'sh']
+
+" Recommended stntastic settings, from the readme
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0

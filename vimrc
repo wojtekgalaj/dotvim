@@ -66,6 +66,7 @@ NeoBundle "rizzatti/dash.vim"
 NeoBundle "sickill/vim-pasta"
 NeoBundle "scrooloose/syntastic"
 NeoBundle "ervandew/supertab"
+NeoBundle "vim-scripts/ZoomWin"
 
 call neobundle#end()
 

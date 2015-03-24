@@ -63,6 +63,7 @@ NeoBundle "Shougo/vimshell.vim"
 NeoBundle "mileszs/ack.vim"
 NeoBundle "wojtekgalaj/vim-snippets"
 NeoBundle "burnettk/vim-angular"
+NeoBundle "joequery/Stupid-EasyMotion"
 
 call neobundle#end()
 

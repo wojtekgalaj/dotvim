@@ -47,8 +47,6 @@ NeoBundle 'Shougo/vimproc', {
       \    },
       \ }
 NeoBundle "Lokaltog/vim-distinguished"
-NeoBundle "tomtom/tlib_vim"
-NeoBundle "MarcWeber/vim-addon-mw-utils"
 NeoBundle "bling/vim-airline"
 NeoBundle "flazz/vim-colorschemes"
 NeoBundle "tpope/vim-fugitive"
@@ -56,18 +54,17 @@ NeoBundle "tpope/vim-git"
 NeoBundle "tpope/vim-surround"
 NeoBundle "pangloss/vim-javascript"
 NeoBundle "garbas/vim-snipmate"
-NeoBundle "cmather/vim-meteor-snippets"
 NeoBundle "kien/ctrlp.vim"
-NeoBundle "Shougo/vimshell.vim"
 NeoBundle "mileszs/ack.vim"
 NeoBundle "wojtekgalaj/vim-snippets"
 NeoBundle "burnettk/vim-angular"
 NeoBundle "joequery/Stupid-EasyMotion"
 NeoBundle "rizzatti/dash.vim"
 NeoBundle "sickill/vim-pasta"
-NeoBundle "scrooloose/syntastic"
 NeoBundle "ervandew/supertab"
 NeoBundle "vim-scripts/ZoomWin"
+NeoBundle "MarcWeber/vim-addon-mw-utils"
+
 
 call neobundle#end()
 
@@ -86,9 +83,6 @@ colorscheme distinguished
 syntax on
 "color mango
 
-if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
-  syntax on
-endif
 
 highlight ColorColumn ctermbg=lightgray
 
@@ -105,6 +99,7 @@ if has("gui_running")
   set guifont=Menlo\ Regular:h14
 endif
 
+
 " Functions
 function! NumberToggle()
   if(&relativenumber == 1)
@@ -120,6 +115,10 @@ let mapleader = ","
 inoremap kj <Esc>
 inoremap <C-c> <Esc>
 nnoremap <Leader>n :call NumberToggle()<cr>
+
+" Switch buffers
+nnoremap <C-n> :bn
+nnoremap <C-b> :bp
 
 " Is this for autocomplete?
 " imap <Tab> <C-N>
@@ -156,12 +155,6 @@ let g:NERDTreeDirArrows=0
 " VimPasta
 let g:pasta_enabled_filetypes = ['javascript', 'css', 'sh']
 
-" Recommended stntastic settings, from the readme
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+" Airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_left_sep = '▶' 

@@ -65,9 +65,10 @@ NeoBundle "burnettk/vim-angular"
 NeoBundle "joequery/Stupid-EasyMotion"
 NeoBundle "rizzatti/dash.vim"
 NeoBundle "sickill/vim-pasta"
-NeoBundle "scrooloose/syntastic"
+"NeoBundle "scrooloose/syntastic"
 NeoBundle "ervandew/supertab"
 NeoBundle "vim-scripts/ZoomWin"
+NeoBundle "scrooloose/nerdtree"
 
 call neobundle#end()
 
@@ -99,6 +100,10 @@ autocmd BufWritePost .vimrc source $MYVIMRC
 " automatically open quickfix window on grep searches
 autocmd QuickFixCmdPost *grep* cwindow
 
+" set working working directory to current open file
+autocmd BufEnter * lcd %:p:h
+
+
 au BufNewFile,BufRead *.markdown,*.md setf markdown
 
 if has("gui_running")
@@ -120,6 +125,9 @@ let mapleader = ","
 inoremap kj <Esc>
 inoremap <C-c> <Esc>
 nnoremap <Leader>n :call NumberToggle()<cr>
+
+" Clean trailing whitespace
+nnoremap <Leader>c :%s/\s\+$//e<cr>
 
 " Is this for autocomplete?
 " imap <Tab> <C-N>
@@ -156,12 +164,3 @@ let g:NERDTreeDirArrows=0
 " VimPasta
 let g:pasta_enabled_filetypes = ['javascript', 'css', 'sh']
 
-" Recommended stntastic settings, from the readme
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0

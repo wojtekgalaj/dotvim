@@ -47,8 +47,6 @@ NeoBundle 'Shougo/vimproc', {
       \    },
       \ }
 NeoBundle "Lokaltog/vim-distinguished"
-NeoBundle "tomtom/tlib_vim"
-NeoBundle "MarcWeber/vim-addon-mw-utils"
 NeoBundle "bling/vim-airline"
 NeoBundle "flazz/vim-colorschemes"
 NeoBundle "tpope/vim-fugitive"
@@ -56,19 +54,17 @@ NeoBundle "tpope/vim-git"
 NeoBundle "tpope/vim-surround"
 NeoBundle "pangloss/vim-javascript"
 NeoBundle "garbas/vim-snipmate"
-NeoBundle "cmather/vim-meteor-snippets"
 NeoBundle "kien/ctrlp.vim"
-NeoBundle "Shougo/vimshell.vim"
 NeoBundle "mileszs/ack.vim"
 NeoBundle "wojtekgalaj/vim-snippets"
 NeoBundle "burnettk/vim-angular"
 NeoBundle "joequery/Stupid-EasyMotion"
 NeoBundle "rizzatti/dash.vim"
 NeoBundle "sickill/vim-pasta"
-"NeoBundle "scrooloose/syntastic"
 NeoBundle "ervandew/supertab"
 NeoBundle "vim-scripts/ZoomWin"
-NeoBundle "scrooloose/nerdtree"
+NeoBundle "MarcWeber/vim-addon-mw-utils"
+
 
 call neobundle#end()
 
@@ -87,9 +83,6 @@ colorscheme distinguished
 syntax on
 "color mango
 
-if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
-  syntax on
-endif
 
 highlight ColorColumn ctermbg=lightgray
 
@@ -128,6 +121,10 @@ nnoremap <Leader>n :call NumberToggle()<cr>
 
 " Clean trailing whitespace
 nnoremap <Leader>c :%s/\s\+$//e<cr>
+
+" Switch buffers
+nnoremap <C-n> :bn
+nnoremap <C-b> :bp
 
 " Is this for autocomplete?
 " imap <Tab> <C-N>

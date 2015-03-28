@@ -46,6 +46,7 @@ NeoBundle 'Shougo/vimproc', {
       \     'unix' : 'make -f make_unix.mak',
       \    },
       \ }
+
 NeoBundle "Lokaltog/vim-distinguished"
 NeoBundle "bling/vim-airline"
 NeoBundle "flazz/vim-colorschemes"
@@ -64,7 +65,9 @@ NeoBundle "sickill/vim-pasta"
 NeoBundle "ervandew/supertab"
 NeoBundle "vim-scripts/ZoomWin"
 NeoBundle "MarcWeber/vim-addon-mw-utils"
-
+NeoBundle "scrooloose/nerdtree"
+NeoBundle "tomtom/tlib_vim"
+NeoBundle "bling/vim-bufferline"
 
 call neobundle#end()
 
@@ -152,7 +155,7 @@ nnoremap <leader><Tab> :NERDTreeToggle<cr>
 " CtrlP
 " 'c' The directory of current file
 " 'r' nearest ancestor with .git
-let g:ctrlp_working_path_mode='r'
+let g:ctrlp_working_path_mode='c'
 
 " NerdTree
 let g:NERDTreeDirArrows=0
@@ -161,3 +164,6 @@ let g:NERDTreeDirArrows=0
 " VimPasta
 let g:pasta_enabled_filetypes = ['javascript', 'css', 'sh']
 
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:bufferline_echo = 1

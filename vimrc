@@ -1,10 +1,9 @@
 
 " Settings
 set nocompatible
-set sh=/bin/bash
 set backupdir=~/.vim_backup//
 set directory=~/.vim_swp//
-set number
+set relativenumber
 set expandtab
 set laststatus=2
 set incsearch
@@ -16,8 +15,6 @@ set numberwidth=4
 set ignorecase
 set smartcase
 set tags=./tags;
-set guioptions-=T
-set guioptions-=r
 set foldenable
 set foldmethod=manual
 set mouse=a
@@ -68,6 +65,7 @@ NeoBundle "MarcWeber/vim-addon-mw-utils"
 NeoBundle "scrooloose/nerdtree"
 NeoBundle "tomtom/tlib_vim"
 NeoBundle "bling/vim-bufferline"
+NeoBundle "Raimondi/delimitMate"
 
 call neobundle#end()
 
@@ -76,35 +74,13 @@ filetyp plugin indent on
 NeoBundleCheck
 
 colorscheme distinguished
-"colorscheme vividchalk
-"colorscheme github
-"colorscheme whitebox
 
-
-" syntax highlighting
-"set background=dark
 syntax on
-"color mango
-
 
 highlight ColorColumn ctermbg=lightgray
 
 " Automatically load .vimrc source when saved
 autocmd BufWritePost .vimrc source $MYVIMRC
-
-
-" automatically open quickfix window on grep searches
-autocmd QuickFixCmdPost *grep* cwindow
-
-" set working working directory to current open file
-autocmd BufEnter * lcd %:p:h
-
-
-au BufNewFile,BufRead *.markdown,*.md setf markdown
-
-if has("gui_running")
-  set guifont=Menlo\ Regular:h14
-endif
 
 " Functions
 function! NumberToggle()
@@ -116,21 +92,17 @@ function! NumberToggle()
 endfunc
 
 " Key Bindings
-let mapleader = ","
-
 inoremap kj <Esc>
-inoremap <C-c> <Esc>
 nnoremap <Leader>n :call NumberToggle()<cr>
 
 " Clean trailing whitespace
-nnoremap <Leader>c :%s/\s\+$//e<cr>
+au BufWritePre * :%s/\s\+$//e
 
 " Switch buffers
-nnoremap <C-n> :bn
-nnoremap <C-b> :bp
+nnoremap <C-n> :bn<cr>
+nnoremap <C-b> :bp<cr>
+nnoremap <C-d> :bd<cr>
 
-" Is this for autocomplete?
-" imap <Tab> <C-N>
 
 " Split windows
 nnoremap <Leader>s :sp<cr><C-w><C-w>
@@ -155,15 +127,11 @@ nnoremap <leader><Tab> :NERDTreeToggle<cr>
 " CtrlP
 " 'c' The directory of current file
 " 'r' nearest ancestor with .git
-let g:ctrlp_working_path_mode='c'
+let g:ctrlp_working_path_mode='r'
 
 " NerdTree
-let g:NERDTreeDirArrows=0
-
+set encoding=utf-8
 
 " VimPasta
 let g:pasta_enabled_filetypes = ['javascript', 'css', 'sh']
 
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '|'
-let g:bufferline_echo = 1

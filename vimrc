@@ -66,6 +66,7 @@ NeoBundle "scrooloose/nerdtree"
 NeoBundle "tomtom/tlib_vim"
 NeoBundle "bling/vim-bufferline"
 NeoBundle "Raimondi/delimitMate"
+NeoBundle "scrooloose/syntastic"
 
 call neobundle#end()
 
@@ -92,6 +93,7 @@ function! NumberToggle()
 endfunc
 
 " Key Bindings
+let mapleader = ","
 inoremap kj <Esc>
 nnoremap <Leader>n :call NumberToggle()<cr>
 
@@ -122,8 +124,6 @@ nnoremap <leader>w :w<cr>
 let NERDTreeShowHidden=1
 nnoremap <leader><Tab> :NERDTreeToggle<cr>
 
-
-
 " CtrlP
 " 'c' The directory of current file
 " 'r' nearest ancestor with .git
@@ -135,3 +135,26 @@ set encoding=utf-8
 " VimPasta
 let g:pasta_enabled_filetypes = ['javascript', 'css', 'sh']
 
+" Prevent cursor from moving after exiting insert mode
+let CursorColumnI = 0 "the cursor column position in INSERT
+autocmd InsertEnter * let CursorColumnI = col('.')
+autocmd CursorMovedI * let CursorColumnI = col('.')
+autocmd InsertLeave * if col('.') != CursorColumnI | call cursor(0, col('.')+1) | endif"
+
+
+let g:airline_powerline_fonts = 1
+
+" syntastic setup
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_html_checkers = []
+
+
+set acd

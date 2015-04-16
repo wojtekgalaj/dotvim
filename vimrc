@@ -26,7 +26,7 @@ set completeopt=longest,menu
 set wildmode=list:longest,list:full
 set complete=.,t
 set hlsearch
-
+set lines=999 columns=9999
 
 " Set up NeoBundle
 set rtp+=~/.vim/bundle/neobundle.vim/
@@ -46,6 +46,7 @@ NeoBundle 'Shougo/vimproc', {
 
 NeoBundle "Lokaltog/vim-distinguished"
 NeoBundle "bling/vim-airline"
+
 NeoBundle "flazz/vim-colorschemes"
 NeoBundle "tpope/vim-fugitive"
 NeoBundle "tpope/vim-git"
@@ -67,6 +68,7 @@ NeoBundle "tomtom/tlib_vim"
 NeoBundle "bling/vim-bufferline"
 NeoBundle "Raimondi/delimitMate"
 NeoBundle "scrooloose/syntastic"
+NeoBundle "tomtom/tcomment_vim"
 
 call neobundle#end()
 
@@ -74,9 +76,15 @@ filetyp plugin indent on
 
 NeoBundleCheck
 
-colorscheme distinguished
+colorscheme monokai
 
 syntax on
+
+if has("gui_running")
+  set guifont=Ubuntu\ Mono\ derivative\ Powerline:h19
+  set guioptions-=R
+  set guioptions-=L
+endif
 
 highlight ColorColumn ctermbg=lightgray
 
@@ -93,9 +101,12 @@ function! NumberToggle()
 endfunc
 
 " Key Bindings
-let mapleader = ","
+" let mapleader = ","
 inoremap kj <Esc>
 nnoremap <Leader>n :call NumberToggle()<cr>
+nnoremap <Leader>m :set modifiable<cr>
+nnoremap <Leader>j :%!python -m json.tool<cr>
+
 
 " Clean trailing whitespace
 au BufWritePre * :%s/\s\+$//e
@@ -157,4 +168,8 @@ let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_html_checkers = []
 
 
-set acd
+"folding settings
+set foldmethod=indent   "fold based on indent
+set foldnestmax=10      "deepest fold is 10 levels
+set nofoldenable        "dont fold by default
+set foldlevel=1         "this is just what i use

@@ -69,6 +69,7 @@ NeoBundle "bling/vim-bufferline"
 NeoBundle "Raimondi/delimitMate"
 NeoBundle "scrooloose/syntastic"
 NeoBundle "tomtom/tcomment_vim"
+NeoBundle "claco/jasmine.vim"
 
 call neobundle#end()
 
@@ -102,7 +103,6 @@ endfunc
 
 " Key Bindings
 " let mapleader = ","
-inoremap kj <Esc>
 nnoremap <Leader>n :call NumberToggle()<cr>
 nnoremap <Leader>m :set modifiable<cr>
 nnoremap <Leader>j :%!python -m json.tool<cr>
@@ -128,8 +128,7 @@ nnoremap <silent> <c-h> :wincmd h<cr>
 nnoremap <silent> <c-l> :wincmd l<cr>
 
 " Exit insert mode and write file
-inoremap <leader>w <Esc> :w<cr>
-nnoremap <leader>w :w<cr>
+nnoremap <leader>w :w!<cr>
 
 " NERDTree
 let NERDTreeShowHidden=1
@@ -166,7 +165,6 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_html_checkers = []
-
 
 "folding settings
 set foldmethod=indent   "fold based on indent

@@ -154,6 +154,8 @@ autocmd InsertLeave * if col('.') != CursorColumnI | call cursor(0, col('.')+1) 
 
 
 let g:airline_powerline_fonts = 1
+" No lag in airline with this.
+set ttimeoutlen=50
 
 " syntastic setup
 set statusline+=%#warningmsg#
@@ -173,3 +175,5 @@ set foldmethod=indent   "fold based on indent
 set foldnestmax=10      "deepest fold is 10 levels
 set nofoldenable        "dont fold by default
 set foldlevel=1         "this is just what i use
+
+:autocmd InsertEnter,InsertLeave * set cul!

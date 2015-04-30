@@ -65,11 +65,12 @@ NeoBundle "vim-scripts/ZoomWin"
 NeoBundle "MarcWeber/vim-addon-mw-utils"
 NeoBundle "scrooloose/nerdtree"
 NeoBundle "tomtom/tlib_vim"
-NeoBundle "bling/vim-bufferline"
 NeoBundle "Raimondi/delimitMate"
 NeoBundle "scrooloose/syntastic"
 NeoBundle "tomtom/tcomment_vim"
 NeoBundle "claco/jasmine.vim"
+NeoBundle "claco/jasmine.vim"
+NeoBundle "szw/vim-ctrlspace"
 
 call neobundle#end()
 
@@ -174,4 +175,6 @@ set foldnestmax=10      "deepest fold is 10 levels
 set nofoldenable        "dont fold by default
 set foldlevel=1         "this is just what i use
 
-:autocmd InsertEnter,InsertLeave * set cul!
+autocmd InsertEnter,InsertLeave * set cul!
+
+let g:ctrlspace_use_mouse_and_arrows_in_term = 1

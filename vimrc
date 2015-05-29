@@ -53,9 +53,9 @@ NeoBundle "tpope/vim-git"
 NeoBundle "tpope/vim-surround"
 NeoBundle "pangloss/vim-javascript"
 NeoBundle "garbas/vim-snipmate"
+NeoBundle "wojtekgalaj/vim-snippets"
 NeoBundle "kien/ctrlp.vim"
 NeoBundle "mileszs/ack.vim"
-NeoBundle "wojtekgalaj/vim-snippets"
 NeoBundle "burnettk/vim-angular"
 NeoBundle "joequery/Stupid-EasyMotion"
 NeoBundle "rizzatti/dash.vim"
@@ -68,8 +68,6 @@ NeoBundle "tomtom/tlib_vim"
 NeoBundle "Raimondi/delimitMate"
 NeoBundle "scrooloose/syntastic"
 NeoBundle "tomtom/tcomment_vim"
-NeoBundle "claco/jasmine.vim"
-NeoBundle "claco/jasmine.vim"
 NeoBundle "szw/vim-ctrlspace"
 
 call neobundle#end()
@@ -78,14 +76,15 @@ filetyp plugin indent on
 
 NeoBundleCheck
 
-colorscheme monokai
+colorscheme distinguished
 
 syntax on
 
 if has("gui_running")
   set guifont=Ubuntu\ Mono\ derivative\ Powerline:h19
-  set guioptions-=R
-  set guioptions-=L
+  set guioptions-=egt
+	set guioptions=LR
+	set guioptions-=LR
 endif
 
 highlight ColorColumn ctermbg=lightgray
@@ -112,11 +111,6 @@ nnoremap <Leader>j :%!python -m json.tool<cr>
 " Clean trailing whitespace
 au BufWritePre * :%s/\s\+$//e
 
-" Switch buffers
-nnoremap <C-n> :bn<cr>
-nnoremap <C-b> :bp<cr>
-nnoremap <C-d> :bd<cr>
-
 
 " Split windows
 nnoremap <Leader>s :sp<cr><C-w><C-w>
@@ -129,11 +123,14 @@ nnoremap <silent> <c-h> :wincmd h<cr>
 nnoremap <silent> <c-l> :wincmd l<cr>
 
 " Exit insert mode and write file
-nnoremap <leader>w :w!<cr>
+inoremap <leader>w <Esc> :w<cr>
+nnoremap <leader>w :w<cr>
 
 " NERDTree
 let NERDTreeShowHidden=1
 nnoremap <leader><Tab> :NERDTreeToggle<cr>
+
+nnoremap <leader>r :vertical resize 120<cr>
 
 " CtrlP
 " 'c' The directory of current file
@@ -156,7 +153,6 @@ autocmd InsertLeave * if col('.') != CursorColumnI | call cursor(0, col('.')+1) 
 let g:airline_powerline_fonts = 1
 " No lag in airline with this.
 set ttimeoutlen=50
-
 " syntastic setup
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}

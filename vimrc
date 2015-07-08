@@ -3,7 +3,7 @@
 set nocompatible
 set backupdir=~/.vim_backup//
 set directory=~/.vim_swp//
-set relativenumber
+"set relativenumber
 set expandtab
 set laststatus=2
 set incsearch
@@ -14,7 +14,6 @@ set shiftwidth=2
 set numberwidth=4
 set ignorecase
 set smartcase
-set tags=./tags;
 set foldenable
 set foldmethod=manual
 set mouse=a
@@ -56,11 +55,9 @@ NeoBundle "garbas/vim-snipmate"
 NeoBundle "wojtekgalaj/vim-snippets"
 NeoBundle "kien/ctrlp.vim"
 NeoBundle "mileszs/ack.vim"
-NeoBundle "burnettk/vim-angular"
 NeoBundle "joequery/Stupid-EasyMotion"
 NeoBundle "rizzatti/dash.vim"
 NeoBundle "sickill/vim-pasta"
-NeoBundle "ervandew/supertab"
 NeoBundle "vim-scripts/ZoomWin"
 NeoBundle "MarcWeber/vim-addon-mw-utils"
 NeoBundle "scrooloose/nerdtree"
@@ -69,6 +66,9 @@ NeoBundle "Raimondi/delimitMate"
 NeoBundle "scrooloose/syntastic"
 NeoBundle "tomtom/tcomment_vim"
 NeoBundle "szw/vim-ctrlspace"
+NeoBundle "FelikZ/ctrlp-py-matcher"
+NeoBundle "marijnh/tern_for_vim"
+NeoBundle "ervandew/supertab"
 
 call neobundle#end()
 
@@ -116,6 +116,10 @@ au BufWritePre * :%s/\s\+$//e
 nnoremap <Leader>s :sp<cr><C-w><C-w>
 nnoremap <Leader>v :vsp<cr><C-w><C-w>
 
+
+"Omnicomplete
+inoremap <Leader>a <C-x><C-o>
+
 " Easily switch between windows
 nnoremap <silent> <c-k> :wincmd k<cr>
 nnoremap <silent> <c-j> :wincmd j<cr>
@@ -129,6 +133,7 @@ nnoremap <leader>w :w<cr>
 " NERDTree
 let NERDTreeShowHidden=1
 nnoremap <leader><Tab> :NERDTreeToggle<cr>
+nnoremap <leader><leader><Tab> :NERDTreeFind<cr>
 
 nnoremap <leader>r :vertical resize 120<cr>
 
@@ -136,6 +141,8 @@ nnoremap <leader>r :vertical resize 120<cr>
 " 'c' The directory of current file
 " 'r' nearest ancestor with .git
 let g:ctrlp_working_path_mode='r'
+let g:ctrlp_custom_ignore = {'dir':  '\v[\/](\.git|\.hg|\.svn|bower_components|node_modules)$', 'file': '\v\.(exe|so|dll)$'}
+let g:ctrlp_match_func = {'match': 'pymatcher#PyMatch'}
 
 " NerdTree
 set encoding=utf-8
@@ -153,6 +160,8 @@ autocmd InsertLeave * if col('.') != CursorColumnI | call cursor(0, col('.')+1) 
 let g:airline_powerline_fonts = 1
 " No lag in airline with this.
 set ttimeoutlen=50
+
+
 " syntastic setup
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -165,6 +174,8 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_html_checkers = []
 
+nnoremap <leader>t :SyntasticToggleMode<cr>
+
 "folding settings
 set foldmethod=indent   "fold based on indent
 set foldnestmax=10      "deepest fold is 10 levels
@@ -174,3 +185,7 @@ set foldlevel=1         "this is just what i use
 autocmd InsertEnter,InsertLeave * set cul!
 
 let g:ctrlspace_use_mouse_and_arrows_in_term = 1
+
+
+"Tern stuff
+let g:tern_map_keys=1

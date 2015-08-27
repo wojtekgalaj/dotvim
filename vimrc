@@ -26,6 +26,7 @@ set wildmode=list:longest,list:full
 set complete=.,t
 set hlsearch
 set lines=999 columns=9999
+set background=dark
 
 " Set up NeoBundle
 set rtp+=~/.vim/bundle/neobundle.vim/
@@ -45,12 +46,10 @@ NeoBundle 'Shougo/vimproc', {
 
 NeoBundle "Lokaltog/vim-distinguished"
 NeoBundle "bling/vim-airline"
-
 NeoBundle "flazz/vim-colorschemes"
 NeoBundle "tpope/vim-fugitive"
 NeoBundle "tpope/vim-git"
 NeoBundle "tpope/vim-surround"
-NeoBundle "pangloss/vim-javascript"
 NeoBundle "garbas/vim-snipmate"
 NeoBundle "wojtekgalaj/vim-snippets"
 NeoBundle "kien/ctrlp.vim"
@@ -69,6 +68,10 @@ NeoBundle "szw/vim-ctrlspace"
 NeoBundle "FelikZ/ctrlp-py-matcher"
 NeoBundle "marijnh/tern_for_vim"
 NeoBundle "ervandew/supertab"
+NeoBundle "othree/javascript-libraries-syntax.vim"
+NeoBundle "mustache/vim-mustache-handlebars"
+NeoBundleLazy 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}}
+
 
 call neobundle#end()
 
@@ -76,9 +79,11 @@ filetyp plugin indent on
 
 NeoBundleCheck
 
-colorscheme distinguished
-
+set t_Co=256
 syntax on
+colorscheme gruvbox
+
+let g:used_javascript_libs = "angularjs, jasmine, angularui, jquery"
 
 if has("gui_running")
   set guifont=Ubuntu\ Mono\ derivative\ Powerline:h19
@@ -87,7 +92,6 @@ if has("gui_running")
 	set guioptions-=LR
 endif
 
-highlight ColorColumn ctermbg=lightgray
 
 " Automatically load .vimrc source when saved
 autocmd BufWritePost .vimrc source $MYVIMRC
@@ -106,7 +110,16 @@ endfunc
 nnoremap <Leader>n :call NumberToggle()<cr>
 nnoremap <Leader>m :set modifiable<cr>
 nnoremap <Leader>j :%!python -m json.tool<cr>
+nnoremap <Leader>d :TernDef<cr>
 
+"Disable Arrow Keys to force myslef to use the home row
+nn <Left> <nop>
+nn <Right> <nop>
+nn <Up> <nop>
+nn <Down> <nop>
+
+
+nn <F9> mzggg?G`z
 
 " Clean trailing whitespace
 au BufWritePre * :%s/\s\+$//e
@@ -189,3 +202,4 @@ let g:ctrlspace_use_mouse_and_arrows_in_term = 1
 
 "Tern stuff
 let g:tern_map_keys=1
+

@@ -113,11 +113,11 @@ nnoremap <Leader>j :%!python -m json.tool<cr>
 nnoremap <Leader>d :TernDef<cr>
 
 "Disable Arrow Keys to force myslef to use the home row
-nn <Left> <nop>
-nn <Right> <nop>
-nn <Up> <nop>
-nn <Down> <nop>
-
+" nn <Left> <nop>
+" nn <Right> <nop>
+" nn <Up> <nop>
+" nn <Down> <nop>
+"
 
 nn <F9> mzggg?G`z
 

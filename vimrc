@@ -20,6 +20,7 @@ set mouse=a
 set backspace=indent,eol,start
 set nowrap
 set cursorline
+set cursorcolumn
 
 set completeopt=longest,menu
 set wildmode=list:longest,list:full
@@ -27,6 +28,7 @@ set complete=.,t
 set hlsearch
 set lines=999 columns=9999
 set background=dark
+set hidden
 
 " Set up NeoBundle
 set rtp+=~/.vim/bundle/neobundle.vim/
@@ -111,6 +113,7 @@ nnoremap <Leader>n :call NumberToggle()<cr>
 nnoremap <Leader>m :set modifiable<cr>
 nnoremap <Leader>j :%!python -m json.tool<cr>
 nnoremap <Leader>d :TernDef<cr>
+nnoremap <Leader>h :noh<cr>
 
 "Disable Arrow Keys to force myslef to use the home row
 " nn <Left> <nop>
@@ -141,7 +144,7 @@ nnoremap <silent> <c-l> :wincmd l<cr>
 
 " Exit insert mode and write file
 inoremap <leader>w <Esc> :w<cr>
-nnoremap <leader>w :w<cr>
+nnoremap <leader>w :wa<cr>
 
 " NERDTree
 let NERDTreeShowHidden=1

@@ -14,8 +14,6 @@ set shiftwidth=2
 set numberwidth=4
 set ignorecase
 set smartcase
-set foldenable
-set foldmethod=manual
 set mouse=a
 set backspace=indent,eol,start
 set nowrap
@@ -72,6 +70,7 @@ NeoBundle "marijnh/tern_for_vim"
 NeoBundle "ervandew/supertab"
 NeoBundle "othree/javascript-libraries-syntax.vim"
 NeoBundle "mustache/vim-mustache-handlebars"
+NeoBundle "mattn/emmet-vim"
 NeoBundleLazy 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}}
 
 
@@ -144,7 +143,7 @@ nnoremap <silent> <c-l> :wincmd l<cr>
 
 " Exit insert mode and write file
 inoremap <leader>w <Esc> :w<cr>
-nnoremap <leader>w :wa<cr>
+nnoremap <leader>w :w<cr>
 
 " NERDTree
 let NERDTreeShowHidden=1

@@ -72,6 +72,9 @@ NeoBundle "othree/javascript-libraries-syntax.vim"
 NeoBundle "mustache/vim-mustache-handlebars"
 NeoBundle "mattn/emmet-vim"
 NeoBundleLazy 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}}
+NeoBundle "groenewege/vim-less"
+NeoBundle "mattn/emmet-vim"
+NeoBundle "mxw/vim-jsx"
 
 
 call neobundle#end()
@@ -163,7 +166,7 @@ let g:ctrlp_match_func = {'match': 'pymatcher#PyMatch'}
 set encoding=utf-8
 
 " VimPasta
-let g:pasta_enabled_filetypes = ['javascript', 'css', 'sh']
+let g:pasta_enabled_filetypes = ['javascript', 'css', 'sh', 'jsx']
 
 " Prevent cursor from moving after exiting insert mode
 let CursorColumnI = 0 "the cursor column position in INSERT

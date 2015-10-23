@@ -44,7 +44,6 @@ NeoBundle 'Shougo/vimproc', {
       \    },
       \ }
 
-NeoBundle "Lokaltog/vim-distinguished"
 NeoBundle "bling/vim-airline"
 NeoBundle "flazz/vim-colorschemes"
 NeoBundle "tpope/vim-fugitive"
@@ -53,6 +52,7 @@ NeoBundle "tpope/vim-surround"
 NeoBundle "garbas/vim-snipmate"
 NeoBundle "wojtekgalaj/vim-snippets"
 NeoBundle "kien/ctrlp.vim"
+NeoBundle "FelikZ/ctrlp-py-matcher"
 NeoBundle "mileszs/ack.vim"
 NeoBundle "joequery/Stupid-EasyMotion"
 NeoBundle "rizzatti/dash.vim"
@@ -65,14 +65,15 @@ NeoBundle "Raimondi/delimitMate"
 NeoBundle "scrooloose/syntastic"
 NeoBundle "tomtom/tcomment_vim"
 NeoBundle "szw/vim-ctrlspace"
-NeoBundle "FelikZ/ctrlp-py-matcher"
 NeoBundle "ervandew/supertab"
 NeoBundle "othree/javascript-libraries-syntax.vim"
 NeoBundle "mustache/vim-mustache-handlebars"
-NeoBundleLazy 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}}
+NeoBundle "pangloss/vim-javascript"
 NeoBundle "groenewege/vim-less"
 NeoBundle "mattn/emmet-vim"
 NeoBundle "mxw/vim-jsx"
+NeoBundleLazy 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}}
+
 
 
 call neobundle#end()
@@ -202,7 +203,4 @@ autocmd InsertEnter,InsertLeave * set cul!
 
 let g:ctrlspace_use_mouse_and_arrows_in_term = 1
 
-
-"Tern stuff
-let g:tern_map_keys=1
 

@@ -107,9 +107,8 @@ function! NumberToggle()
     set relativenumber
   endif
 endfunc
-
 " Key Bindings
-" let mapleader = ","
+let mapleader = "\<space>"
 nnoremap <Leader>n :call NumberToggle()<cr>
 nnoremap <Leader>m :set modifiable<cr>
 nnoremap <Leader>j :%!python -m json.tool<cr>
@@ -134,8 +133,6 @@ nnoremap <Leader>s :sp<cr><C-w><C-w>
 nnoremap <Leader>v :vsp<cr><C-w><C-w>
 
 
-"Omnicomplete
-inoremap <Leader>a <C-x><C-o>
 
 " Easily switch between windows
 nnoremap <silent> <c-k> :wincmd k<cr>
@@ -144,7 +141,6 @@ nnoremap <silent> <c-h> :wincmd h<cr>
 nnoremap <silent> <c-l> :wincmd l<cr>
 
 " Exit insert mode and write file
-inoremap <leader>w <Esc> :w<cr>
 nnoremap <leader>w :w<cr>
 
 " NERDTree
@@ -176,9 +172,7 @@ autocmd InsertLeave * if col('.') != CursorColumnI | call cursor(0, col('.')+1) 
 
 let g:airline_powerline_fonts = 1
 " No lag in airline with this.
-set ttimeoutlen=50
-
-
+set timeoutlen=1000 ttimeoutlen=0
 " syntastic setup
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}

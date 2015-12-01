@@ -3,7 +3,7 @@
 set nocompatible
 set backupdir=~/.vim_backup//
 set directory=~/.vim_swp//
-"set relativenumber
+set relativenumber
 set expandtab
 set laststatus=2
 set incsearch
@@ -140,7 +140,7 @@ nnoremap <silent> <c-j> :wincmd j<cr>
 nnoremap <silent> <c-h> :wincmd h<cr>
 nnoremap <silent> <c-l> :wincmd l<cr>
 
-" Exit insert mode and write file
+
 nnoremap <leader>w :w<cr>
 
 " NERDTree

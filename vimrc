@@ -29,6 +29,9 @@ set background=dark
 set hidden
 set grepprg=ack
 
+set winheight=30
+set winwidth=120
+
 let g:grep_cmd_opts = '--noheading'
 
 " Set up NeoBundle

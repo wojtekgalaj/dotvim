@@ -27,6 +27,9 @@ set hlsearch
 set lines=999 columns=9999
 set background=dark
 set hidden
+set grepprg=ack
+
+let g:grep_cmd_opts = '--noheading'
 
 " Set up NeoBundle
 set rtp+=~/.vim/bundle/neobundle.vim/
@@ -72,6 +75,7 @@ NeoBundle "pangloss/vim-javascript"
 NeoBundle "groenewege/vim-less"
 NeoBundle "mattn/emmet-vim"
 NeoBundle "mxw/vim-jsx"
+NeoBundle "skwp/greplace.vim"
 NeoBundleLazy 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}}
 
 

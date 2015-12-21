@@ -20,9 +20,7 @@ set nowrap
 set cursorline
 set cursorcolumn
 
-set completeopt=longest,menu
 set wildmode=list:longest,list:full
-set complete=.,t
 set hlsearch
 set lines=999 columns=9999
 set background=dark

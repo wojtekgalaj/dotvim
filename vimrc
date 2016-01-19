@@ -138,7 +138,6 @@ nnoremap <Leader>s :sp<cr><C-w><C-w>
 nnoremap <Leader>v :vsp<cr><C-w><C-w>
 
 
-
 " Easily switch between windows
 nnoremap <silent> <c-k> :wincmd k<cr>
 nnoremap <silent> <c-j> :wincmd j<cr>
@@ -159,7 +158,7 @@ nnoremap <leader>r :vertical resize 120<cr>
 " 'c' The directory of current file
 " 'r' nearest ancestor with .git
 let g:ctrlp_working_path_mode='r'
-let g:ctrlp_custom_ignore = {'dir':  '\v[\/](\.git|\.hg|\.svn|bower_components|node_modules)$', 'file': '\v\.(exe|so|dll)$'}
+let g:ctrlp_custom_ignore = {'dir': '\v[\/](\.git|\.hg|\.svn|bower_components|node_modules|coverage)$', 'file': '\v\.(exe|so|dll)$'}
 let g:ctrlp_match_func = {'match': 'pymatcher#PyMatch'}
 
 " NerdTree

@@ -18,7 +18,6 @@ set mouse=a
 set backspace=indent,eol,start
 set nowrap
 set cursorline
-set cursorcolumn
 
 set wildmode=list:longest,list:full
 set hlsearch

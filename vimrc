@@ -26,9 +26,6 @@ set background=dark
 set hidden
 set grepprg=ack
 
-set winheight=30
-set winwidth=120
-
 let g:grep_cmd_opts = '--noheading'
 
 " Set up NeoBundle
@@ -145,6 +142,8 @@ nnoremap <silent> <c-l> :wincmd l<cr>
 
 
 nnoremap <leader>w :w<cr>
+
+nnoremap <Leader>a :Ack<Space>
 
 " NERDTree
 let NERDTreeShowHidden=1

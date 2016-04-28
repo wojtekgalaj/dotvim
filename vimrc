@@ -73,6 +73,7 @@ NeoBundle "groenewege/vim-less"
 NeoBundle "mattn/emmet-vim"
 NeoBundle "mxw/vim-jsx"
 NeoBundle "skwp/greplace.vim"
+NeoBundle "wavded/vim-stylus"
 NeoBundleLazy 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}}
 
 
@@ -115,6 +116,7 @@ nnoremap <Leader>m :set modifiable<cr>
 nnoremap <Leader>j :%!python -m json.tool<cr>
 nnoremap <Leader>d :TernDef<cr>
 nnoremap <Leader>h :noh<cr>
+nnoremap <Leader>c :bufdo bd<cr>
 
 "Disable Arrow Keys to force myslef to use the home row
 " nn <Left> <nop>
@@ -170,6 +172,9 @@ let CursorColumnI = 0 "the cursor column position in INSERT
 autocmd InsertEnter * let CursorColumnI = col('.')
 autocmd CursorMovedI * let CursorColumnI = col('.')
 autocmd InsertLeave * if col('.') != CursorColumnI | call cursor(0, col('.')+1) | endif"
+
+" Use jsx syntax in js files
+let g:jsx_ext_required = 0
 
 
 let g:airline_powerline_fonts = 1

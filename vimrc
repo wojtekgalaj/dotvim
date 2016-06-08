@@ -1,4 +1,3 @@
-
 " Settings
 set nocompatible
 set backupdir=~/.vim_backup//
@@ -9,8 +8,8 @@ set laststatus=2
 set incsearch
 set autoindent
 set showcmd
-set tabstop=2
-set shiftwidth=2
+set tabstop=4
+set shiftwidth=4
 set numberwidth=4
 set ignorecase
 set smartcase
@@ -91,7 +90,7 @@ colorscheme gruvbox
 let g:used_javascript_libs = "angularjs, jasmine, angularui, jquery"
 
 if has("gui_running")
-  set guifont=Ubuntu\ Mono\ derivative\ Powerline:h19
+  set guifont=Operator\ Mono:h16
   set guioptions-=egt
 	set guioptions=LR
 	set guioptions-=LR

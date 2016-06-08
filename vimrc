@@ -1,10 +1,7 @@
 " Settings
 set nocompatible
-set backupdir=~/.vim_backup//
-set directory=~/.vim_swp//
-set relativenumber
 set expandtab
-set laststatus=2
+set laststatus=0
 set incsearch
 set autoindent
 set showcmd
@@ -17,6 +14,8 @@ set mouse=a
 set backspace=indent,eol,start
 set nowrap
 set cursorline
+set cursorcolumn
+set relativenumber
 
 set wildmode=list:longest,list:full
 set hlsearch
@@ -43,7 +42,7 @@ NeoBundle 'Shougo/vimproc', {
       \    },
       \ }
 
-NeoBundle "bling/vim-airline"
+" NeoBundle "bling/vim-airline"
 NeoBundle "flazz/vim-colorschemes"
 NeoBundle "tpope/vim-fugitive"
 NeoBundle "tpope/vim-git"
@@ -81,8 +80,6 @@ call neobundle#end()
 
 filetyp plugin indent on
 
-NeoBundleCheck
-
 set t_Co=256
 syntax on
 colorscheme gruvbox
@@ -96,9 +93,6 @@ if has("gui_running")
 	set guioptions-=LR
 endif
 
-
-" Automatically load .vimrc source when saved
-autocmd BufWritePost .vimrc source $MYVIMRC
 
 " Functions
 function! NumberToggle()
@@ -129,7 +123,6 @@ nn <F9> mzggg?G`z
 " Clean trailing whitespace
 au BufWritePre * :%s/\s\+$//e
 
-
 " Split windows
 nnoremap <Leader>s :sp<cr><C-w><C-w>
 nnoremap <Leader>v :vsp<cr><C-w><C-w>
@@ -140,7 +133,6 @@ nnoremap <silent> <c-k> :wincmd k<cr>
 nnoremap <silent> <c-j> :wincmd j<cr>
 nnoremap <silent> <c-h> :wincmd h<cr>
 nnoremap <silent> <c-l> :wincmd l<cr>
-
 
 nnoremap <leader>w :w<cr>
 

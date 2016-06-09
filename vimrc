@@ -1,5 +1,8 @@
 " Settings
 set nocompatible
+set backupdir=~/.vim_backup//
+set directory=~/.vim_swp//
+set backupcopy=yes
 set expandtab
 set laststatus=0
 set incsearch
@@ -23,6 +26,11 @@ set lines=999 columns=9999
 set background=dark
 set hidden
 set grepprg=ack
+highlight Comment cterm=italic
+set term=xterm-256color-italic
+
+set t_ZH=[3m
+set t_ZR=[23m
 
 let g:grep_cmd_opts = '--noheading'
 
@@ -105,6 +113,7 @@ endfunc
 " Key Bindings
 let mapleader = "\<space>"
 nnoremap <Leader>n :call NumberToggle()<cr>
+nnoremap <Leader>nn :set nonumber<cr>
 nnoremap <Leader>m :set modifiable<cr>
 nnoremap <Leader>j :%!python -m json.tool<cr>
 nnoremap <Leader>d :TernDef<cr>

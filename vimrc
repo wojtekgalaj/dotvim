@@ -1,5 +1,7 @@
 " Settings
 set nocompatible
+set backupdir=~/.vim_backup//
+set directory=~/.vim_swp//
 set expandtab
 set laststatus=0
 set incsearch

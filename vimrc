@@ -4,13 +4,13 @@ set backupdir=~/.vim_backup//
 set directory=~/.vim_swp//
 set backupcopy=yes
 set expandtab
-set laststatus=0
 set incsearch
 set autoindent
 set showcmd
-set tabstop=4
-set shiftwidth=4
-set numberwidth=4
+
+set tabstop=2
+
+set shiftwidth=2
 set ignorecase
 set smartcase
 set mouse=a
@@ -18,9 +18,10 @@ set backspace=indent,eol,start
 set nowrap
 set cursorline
 set cursorcolumn
-set relativenumber
+set clipboard=unnamed
 
 set wildmode=list:longest,list:full
+set wildmenu
 set hlsearch
 set lines=999 columns=9999
 set background=dark
@@ -28,6 +29,11 @@ set hidden
 set grepprg=ack
 highlight Comment cterm=italic
 set term=xterm-256color-italic
+set laststatus=1
+set statusline=%f "tail of the filename"
+
+" allow deep file finding
+set path+=**
 
 set t_ZH=[3m
 set t_ZR=[23m
@@ -57,7 +63,7 @@ NeoBundle "tpope/vim-git"
 NeoBundle "tpope/vim-surround"
 NeoBundle "garbas/vim-snipmate"
 NeoBundle "wojtekgalaj/vim-snippets"
-NeoBundle "kien/ctrlp.vim"
+NeoBundle "ctrlpvim/ctrlp.vim"
 NeoBundle "FelikZ/ctrlp-py-matcher"
 NeoBundle "mileszs/ack.vim"
 NeoBundle "joequery/Stupid-EasyMotion"
@@ -80,9 +86,10 @@ NeoBundle "mattn/emmet-vim"
 NeoBundle "mxw/vim-jsx"
 NeoBundle "skwp/greplace.vim"
 NeoBundle "wavded/vim-stylus"
+NeoBundle "tpope/vim-abolish"
+NeoBundle "majutsushi/tagbar"
+NeoBundle "burnettk/vim-angular"
 NeoBundleLazy 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}}
-
-
 
 call neobundle#end()
 
@@ -158,7 +165,7 @@ nnoremap <leader>r :vertical resize 120<cr>
 " 'c' The directory of current file
 " 'r' nearest ancestor with .git
 let g:ctrlp_working_path_mode='r'
-let g:ctrlp_custom_ignore = {'dir': '\v[\/](\.git|\.hg|\.svn|bower_components|node_modules|coverage)$', 'file': '\v\.(exe|so|dll)$'}
+let g:ctrlp_custom_ignore = {'dir': '\v[\/](\.git|\.hg|\.svn|bower_components|node_modules|coverage|build)$', 'file': '\v\.(exe|so|dll)$'}
 let g:ctrlp_match_func = {'match': 'pymatcher#PyMatch'}
 
 " NerdTree
@@ -189,7 +196,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_checkers = ['standard']
 let g:syntastic_html_checkers = []
 
 nnoremap <leader>t :SyntasticToggleMode<cr>
